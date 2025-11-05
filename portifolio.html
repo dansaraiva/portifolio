@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Daniel Saraiva</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header .subtitle {
+            font-size: 1.3em;
+            color: #764ba2;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .about-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .about-highlights {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .about-highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-highlights li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .about-highlights li:last-child {
+            border-bottom: none;
+        }
+
+        .about-highlights i {
+            color: #667eea;
+            margin-right: 10px;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+        }
+
+        .experience-item h4 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .experience-item .institution {
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .period {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .project-card h4 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-card p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .project-card .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .education-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #764ba2;
+        }
+
+        .education-card h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .education-card .institution {
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-card .period {
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-top: 4px solid #667eea;
+        }
+
+        .skill-category h4 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .skill-category li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Daniel Saraiva</h1>
+            <p class="subtitle">Professor | Coordenador | Desenvolvedor | Pesquisador</p>
+            <p style="color: #666; font-size: 1.1em; margin-top: 10px;">
+                <i class="fas fa-map-marker-alt"></i> Fortaleza, Ceará, Brasil
+            </p>
+            
+            <div class="social-links">
+                <a href="https://github.com/dansaraiva" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/danielssaraiva/" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="http://lattes.cnpq.br/0363452321076824" target="_blank">
+                    <i class="fas fa-graduation-cap"></i> Lattes
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLn6x1TSgoIgwNZT6hMqB_d8ufZkQyA-gS" target="_blank">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2><i class="fas fa-user"></i> Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Sou professor e coordenador do Eixo de Tecnologia da Informação e Comunicação no Instituto Centec, 
+                        com mais de 13 anos de experiência na área educacional. Atuo também como tutor no curso de Análise 
+                        de Sistemas da UFCA na modalidade EaD.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Minha paixão é formar profissionais capacitados e preparados para os desafios do mercado de tecnologia, 
+                        ministrando disciplinas como Lógica de Programação, POO, Redes de Computadores, Robótica e muito mais.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Atualmente, estou cursando Mestrado em Computação Aplicada pela UNIVALI e Bacharelado em Engenharia 
+                        de Software, sempre buscando atualização e excelência no ensino.
+                    </p>
+                </div>
+                <div class="about-highlights">
+                    <h3 style="color: #667eea; font-size: 1.3em; margin-bottom: 15px;">Destaques</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <strong>13+ anos</strong> de experiência em educação</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>238 seguidores</strong> no LinkedIn</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>163 seguidores</strong> no GitHub</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>53 repositórios</strong> públicos</li>
+                        <li><i class="fas fa-check-circle"></i> Múltiplas especializações</li>
+                        <li><i class="fas fa-check-circle"></i> Mestrado em andamento</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+            
+            <div class="experience-item">
+                <h4>Tutor</h4>
+                <p class="institution">Universidade Federal do Cariri - UFCA</p>
+                <p class="period">Jun 2024 - Presente • 1 ano 3 meses</p>
+                <p>
+                    Atuo como tutor no curso de Análise de Sistemas da UFCA, na modalidade de Ensino a Distância (EaD). 
+                    Presto suporte aos estudantes, auxiliando na resolução de dúvidas e na remoção de impedimentos que 
+                    possam surgir ao longo do processo de ensino-aprendizagem.
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <h4>Coordenador/Professor do Eixo Tecnologia da Informação e Comunicação</h4>
+                <p class="institution">Instituto Centec</p>
+                <p class="period">Set 2012 - Presente • 13 anos</p>
+                <p>
+                    <strong>Como docente:</strong> Atuo nos cursos técnicos em Desenvolvimento de Sistemas e Informática, 
+                    ministrando disciplinas como Lógica de Programação, Programação Orientada a Objetos, Laboratório de 
+                    Software, Redes de Computadores, Gestão de Startups, Robótica, entre outras.
+                </p>
+                <p style="margin-top: 10px;">
+                    <strong>Como coordenador:</strong> Removo impedimentos para a aprendizagem dos alunos e facilito o 
+                    trabalho dos docentes, garantindo um ambiente propício ao desenvolvimento educacional. Possuo experiência 
+                    na orientação de projetos de software e científicos.
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <h4>Instrutor</h4>
+                <p class="institution">Senac Ceará</p>
+                <p class="period">Mar 2013 - Jul 2019 • 6 anos 5 meses</p>
+                <p>
+                    Ministrei cursos profissionalizantes no eixo de Tecnologia da Informação, além de contribuir com 
+                    disciplinas em cursos técnicos diversificados, incluindo Informática Aplicada à Saúde no curso 
+                    Técnico em Enfermagem.
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <h4>Professor Substituto</h4>
+                <p class="institution">Instituto Federal de Educação, Ciência e Tecnologia do Ceará</p>
+                <p class="period">Fev 2011 - Fev 2013 • 2 anos 1 mês</p>
+                <p>
+                    Lecionei nos cursos técnicos em Comércio e Informática, além de ministrar aulas no curso de Tecnologia 
+                    em Irrigação e Drenagem. Conduzi cursos de extensão em Manutenção de Notebooks, Sistemas Operacionais 
+                    Ubuntu e Programação Web.
+                </p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2><i class="fas fa-code"></i> Projetos em Destaque</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1em;">
+                Confira alguns dos meus principais projetos no GitHub:
+            </p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4><i class="fab fa-java"></i> projeto_crud</h4>
+                    <p>
+                        Projeto de CRUD (Create, Read, Update, Delete) desenvolvido em Java, demonstrando operações 
+                        básicas de banco de dados e boas práticas de programação orientada a objetos.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">CRUD</span>
+                        <span class="tech-tag">POO</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4><i class="fab fa-python"></i> Aulas-Python</h4>
+                    <p>
+                        Material didático completo do curso técnico em informática, contendo aulas, exercícios e 
+                        projetos práticos para o ensino de Python.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Educação</span>
+                        <span class="tech-tag">Tutorial</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4><i class="fab fa-python"></i> desafio-backend</h4>
+                    <p>
+                        Projeto de desafio backend desenvolvido em Python, demonstrando habilidades em desenvolvimento 
+                        de APIs e arquitetura de software.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Backend</span>
+                        <span class="tech-tag">API</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4><i class="fab fa-golang"></i> devops-avanti</h4>
+                    <p>
+                        Projeto focado em práticas DevOps utilizando Go, explorando automação, integração contínua 
+                        e deployment.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Go</span>
+                        <span class="tech-tag">DevOps</span>
+                        <span class="tech-tag">CI/CD</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4><i class="fas fa-store"></i> digital-store</h4>
+                    <p>
+                        Projeto de e-commerce completo, demonstrando conhecimentos em desenvolvimento full-stack 
+                        e integração de sistemas.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">E-commerce</span>
+                        <span class="tech-tag">Full-Stack</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4><i class="fab fa-java"></i> documentacao</h4>
+                    <p>
+                        Projeto focado em boas práticas de documentação de código e sistemas, essencial para 
+                        manutenção e colaboração em equipe.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Documentação</span>
+                        <span class="tech-tag">Boas Práticas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://github.com/dansaraiva" target="_blank" 
+                   style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                          color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1em;">
+                    <i class="fab fa-github"></i> Ver todos os 53 repositórios no GitHub
+                </a>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
+            
+            <h3>Em Andamento</h3>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h4>Mestrado em Computação Aplicada</h4>
+                    <p class="institution">Universidade do Vale do Itajaí - UNIVALI</p>
+                    <p class="period">2024 - 2026</p>
+                </div>
+
+                <div class="education-card">
+                    <h4>Bacharelado em Engenharia de Software</h4>
+                    <p class="institution">GRAN</p>
+                    <p class="period">2024 - 2028</p>
+                </div>
+            </div>
+
+            <h3>Especializações</h3>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h4>Engenharia de Software</h4>
+                    <p class="institution">Faculdade Metropolitana</p>
+                    <p class="period">2019 - 2021</p>
+                </div>
+
+                <div class="education-card">
+                    <h4>Segurança de Redes de Computadores</h4>
+                    <p class="institution">Faculdade de Tecnologia Evolução</p>
+                    <p class="period">2014 - 2015</p>
+                </div>
+
+                <div class="education-card">
+                    <h4>Análise de Sistemas de Computação</h4>
+                    <p class="institution">Estácio</p>
+                    <p class="period">2013 - 2014</p>
+                </div>
+
+                <div class="education-card">
+                    <h4>Docência na Educação Profissional</h4>
+                    <p class="institution">Instituto Federal do Ceará - IFCE</p>
+                    <p class="period">2013 - 2014</p>
+                </div>
+
+                <div class="education-card">
+                    <h4>Educação Global | Construção da Cidadania</h4>
+                    <p class="institution">Faculdade de Desenvolvimento e Integração Regional</p>
+                    <p class="period">2013 - 2015</p>
+                </div>
+            </div>
+
+            <h3>Graduações</h3>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h4>Licenciatura em Computação</h4>
+                    <p class="institution">Universidade Estadual do Ceará - UECE</p>
+                </div>
+
+                <div class="education-card">
+                    <h4>Tecnologia em Telemática</h4>
+                    <p class="institution">Estácio</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2><i class="fas fa-tools"></i> Competências e Habilidades</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4><i class="fas fa-code"></i> Linguagens de Programação</h4>
+                    <ul>
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>Go</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-laptop-code"></i> Desenvolvimento</h4>
+                    <ul>
+                        <li>Programação Orientada a Objetos</li>
+                        <li>Desenvolvimento Web</li>
+                        <li>Backend Development</li>
+                        <li>APIs REST</li>
+                        <li>CRUD Operations</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-network-wired"></i> Infraestrutura</h4>
+                    <ul>
+                        <li>Redes de Computadores</li>
+                        <li>Segurança de Redes</li>
+                        <li>DevOps</li>
+                        <li>Sistemas Operacionais</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-chalkboard-teacher"></i> Educação</h4>
+                    <ul>
+                        <li>Docência em TI</li>
+                        <li>Coordenação de Cursos</li>
+                        <li>Orientação de Projetos</li>
+                        <li>Metodologias Ativas</li>
+                        <li>EaD</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-robot"></i> Outras Áreas</h4>
+                    <ul>
+                        <li>Robótica</li>
+                        <li>Gestão de Startups</li>
+                        <li>Laboratório de Software</li>
+                        <li>Inteligência Artificial</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-certificate"></i> Certificações</h4>
+                    <ul>
+                        <li>Básico em Liderança (2024)</li>
+                        <li>Criativos - Educação + Natureza (2024)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- YouTube Section -->
+        <section id="youtube">
+            <h2><i class="fab fa-youtube"></i> Conteúdo Educacional</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                Confira minha playlist no YouTube com conteúdos educacionais sobre tecnologia e programação:
+            </p>
+            <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border-radius: 15px;">
+                <i class="fab fa-youtube" style="font-size: 4em; color: #FF0000; margin-bottom: 20px;"></i>
+                <h3 style="color: #667eea; margin-bottom: 15px;">Playlist Educacional</h3>
+                <p style="margin-bottom: 20px;">Vídeos sobre programação, tecnologia e educação</p>
+                <a href="https://www.youtube.com/playlist?list=PLn6x1TSgoIgwNZT6hMqB_d8ufZkQyA-gS" target="_blank"
+                   style="display: inline-block; padding: 15px 40px; background: #FF0000; color: white; 
+                          text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1em;">
+                    <i class="fab fa-youtube"></i> Assistir Playlist
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p><strong>Daniel Saraiva</strong> - Professor | Coordenador | Desenvolvedor</p>
+            <p style="margin-top: 10px;">Fortaleza, Ceará, Brasil</p>
+            <div class="social-links" style="margin-top: 20px;">
+                <a href="https://github.com/dansaraiva" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/danielssaraiva/" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="http://lattes.cnpq.br/0363452321076824" target="_blank">
+                    <i class="fas fa-graduation-cap"></i> Lattes
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLn6x1TSgoIgwNZT6hMqB_d8ufZkQyA-gS" target="_blank">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+            </div>
+            <p style="margin-top: 20px; color: #999;">© 2025 - Todos os direitos reservados</p>
+        </footer>
+    </div>
+</body>
+</html>
